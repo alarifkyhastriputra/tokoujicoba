@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAMA TOKO | Streetwear Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#064E3B',
+                        bg: '#022C22',
+                        text: '#ECFDF5',
+                        accent: '#34D399'
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #022C22; color: #ECFDF5; }
+        .glass { background: rgba(6, 78, 59, 0.7); backdrop-filter: blur(10px); }
+        .rounded-custom { border-radius: 16px; }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 p-4">
+        <div class="max-w-6xl mx-auto glass rounded-custom p-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-primary">NAMA TOKO</h1>
+            <div class="hidden md:flex gap-6 font-medium">
+                <a href="#katalog" class="hover:text-primary transition">Katalog</a>
+                <a href="#tentang" class="hover:text-primary transition">Tentang Kami</a>
+                <a href="#kontak" class="hover:text-primary transition">Kontak</a>
+            </div>
+            <button onclick="toggleCart()" class="relative p-2 bg-primary rounded-full">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-xs w-5 h-5 rounded-full flex items-center justify-center">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-20 px-4">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- Produk Baru: awqsq -->
+    <div class="product-item bg-zinc-900 border border-zinc-800 hover:border-zinc-600 rounded-2xl p-4 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl group">
+      <div class="relative aspect-square w-full rounded-xl overflow-hidden bg-zinc-950 mb-3.5">
+        <img src="https://i.imgur.com/P8SflRn.jpeg" alt="awqsq" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" />
+        <span class="absolute top-2.5 right-2.5 px-2.5 py-0.5 rounded-full bg-white text-black text-[10px] font-bold shadow-md">qsqsq</span>
+      </div>
+      <div class="space-y-1.5 flex-1 flex flex-col justify-between">
+        <div>
+          <h4 class="text-sm font-bold text-white group-hover:text-zinc-200 transition">awqsq</h4>
+          <p class="text-[11px] text-zinc-400 line-clamp-2 leading-relaxed mt-1">Bahan katun combed 24s premium lembut, adem dan nyaman digunakan sehari-hari.</p>
+        </div>
+        <div class="pt-3 border-t border-zinc-800/80 flex items-center justify-between mt-3">
+          <span class="text-sm font-extrabold text-white font-mono">Rp 1111</span>
+          <a href="https://wa.me/6281234567890?text=Halo%2C%20saya%20ingin%20pesan%3A%20awqsq%20(Rp%201111)" target="_blank" rel="noreferrer" class="px-3.5 py-1.5 bg-white hover:bg-zinc-200 text-black text-xs font-bold rounded-xl flex items-center gap-1 shadow transition">
+            <span>Beli</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+            <div>
+                <h2 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">selmat datang di toko</h2>
+                <p class="text-lg text-gray-300 mb-8">Koleksi pakaian streetwear terbaru 2026 dengan bahan katun combed 24s adem, potongan rapi, dan diskon 20%.</p>
+                <a href="#katalog" class="bg-primary hover:bg-accent px-8 py-4 rounded-custom font-bold transition">Belanja via WhatsApp</a>
+            </div>
+            <img src="https://i.imgur.com/2ajwkyP.jpeg" class="rounded-custom shadow-xl w-full h-[400px] object-cover" alt="Hero">
+        </div>
+    </section>
+
+    <!-- Katalog -->
+    <section id="katalog" class="py-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-3xl font-bold mb-10 text-center">Produk Terlaris Minggu Ini</h3>
+            <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Cari produk..." class="w-full p-4 mb-8 rounded-custom bg-secondary text-white border border-primary focus:outline-none">
+            
+            <div id="productGrid" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Produk telah dihapus sesuai permintaan -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section id="tentang" class="py-20 px-4 bg-secondary">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-3xl font-bold mb-6">Tentang Kami</h3>
+            <p class="text-lg text-gray-300">Didirikan untuk menghadirkan tren fashion berkualitas premium dengan pemesanan praktis dan pengiriman kilat. Vimos Corp berkomitmen memberikan kenyamanan terbaik bagi gaya hidup streetwear Anda.</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-20 px-4">
+        <div class="max-w-3xl mx-auto">
+            <h3 class="text-3xl font-bold mb-10 text-center">FAQ</h3>
+            <div class="space-y-4">
+                <div class="bg-secondary p-6 rounded-custom cursor-pointer" onclick="this.querySelector('p').classList.toggle('hidden')">
+                    <h4 class="font-bold">Bagaimana cara pemesanan?</h4>
+                    <p class="mt-2 text-gray-400 hidden">Klik tombol WhatsApp pada produk pilihan Anda, rincian otomatis terisi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 border-t border-secondary">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12 px-4 text-center">
+            <div><h4 class="text-xl font-bold mb-4">NAMA TOKO</h4><p>Vimos Corp 2026</p></div>
+            <div><h4 class="text-xl font-bold mb-4">Kontak</h4><p>WhatsApp: +62 812-3456-7890</p></div>
+            <div><h4 class="text-xl font-bold mb-4">Lokasi</h4><p>Jakarta, Indonesia</p></div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="hidden fixed inset-0 z-[60] bg-black bg-opacity-50 flex items-center justify-center p-4">
+        <div class="bg-bg p-8 rounded-custom w-full max-w-md border border-primary">
+            <h3 class="text-2xl font-bold mb-4">Keranjang</h3>
+            <div id="cartItems" class="mb-4"></div>
+            <button onclick="checkout()" class="w-full py-3 bg-primary rounded-custom font-bold">Checkout via WhatsApp</button>
+            <button onclick="toggleCart()" class="mt-4 w-full py-3 border border-gray-600 rounded-custom">Tutup</button>
+        </div>
+    </div>
+
+    <!-- Floating WA -->
+    <a href="https://wa.me/" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-lg z-50">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        let cart = [];
+        
+        function toggleCart() {
+            document.getElementById('cartModal').classList.toggle('hidden');
+        }
+
+        function addToCart(name, price) {
+            cart.push({name, price});
+            document.getElementById('cart-count').innerText = cart.length;
+            window.open('https://wa.me/?text=' + encodeURIComponent('Halo nama toko, saya ingin membeli: ' + name + ' (Rp ' + price + '). Apakah stok masih tersedia?'), '_blank');
+        }
+
+        function filterProducts() {
+            let val = document.getElementById('searchInput').value.toLowerCase();
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.style.display = card.innerText.toLowerCase().includes(val) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
